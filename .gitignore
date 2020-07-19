@@ -1,6 +1,6 @@
 /vuttr-api/target/
-/vuttr-api/nb-configuration
-/vuttr-api/nbactions
+/vuttr-api/nb-configuration.xml
+/vuttr-api/nbactions.xml
 
 /vuttr-cli/node_modules/
 /vuttr-cli/build/
