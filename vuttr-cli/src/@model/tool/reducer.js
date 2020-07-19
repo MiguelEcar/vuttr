@@ -36,7 +36,7 @@ function toolReducer(state = initialState, action) {
         case LIST_TOOL_SUCCESS:
             return {
                 ...state,
-                list: action.list.content,
+                list: action.list,
                 loading: false
             }
         case LIST_TOOL_FAILURE:

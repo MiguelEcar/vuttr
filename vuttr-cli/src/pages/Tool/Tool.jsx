@@ -8,9 +8,7 @@ import {
     Row,
     Col,
     Card,
-    CardBody,
-    CardHeader,
-    Button,
+    Badge,
 } from 'react-bootstrap';
 
 
@@ -41,18 +39,23 @@ class Tool extends React.Component {
             <Container>
                 <Row>
                     <Col md='auto'>
-                        <Card>
-                            <Card.Header></Card.Header>
-                            <Card.Body>
-                                <Card.Text>
+                        {toolReducer.list && toolReducer.list.map((tool) =>
+                            <>
+                                <Card>
+                                    <Card.Header>{tool.title}</Card.Header>
+                                    <Card.Body>
+                                        <Card.Text>{tool.description}</Card.Text>
+                                        <hr />
+                                        {tool.tags.map((tag) =>
+                                            <Badge variant='primary'>{tag}</Badge>
+                                        )}
+                                        {/* ///////////////////////////////////////////////////////////////////////////////// */}
 
-                                </Card.Text>
+                                    </Card.Body>
+                                </Card>
                                 <hr />
-                                
-                                {/* ///////////////////////////////////////////////////////////////////////////////// */}
-
-                            </Card.Body>
-                        </Card>
+                            </>
+                        )}
                     </Col>
                 </Row>
             </Container>

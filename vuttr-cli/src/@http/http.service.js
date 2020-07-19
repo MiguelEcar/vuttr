@@ -1,63 +1,44 @@
-import axios from "axios";
-import qs from 'qs'
+import axios from 'axios';
 
-import { httpAuthService } from './';
+import { httpAuthService } from './http.auth.service';
 
 export const httpService = {
     post,
-    get
+    put,
+    get,
+    del
 };
 
-function post(path, fields) {
+async function post(path, body) {
+    const response = await req({ method: 'post', path: path, data: body });
+    return await response.data;
+}
 
-    const body = {
-        name: fields.name,
-        email: fields.email,
-        password: fields.password,
-    }
+async function put(path, body) {
+    const response = await req({ method: 'put', path: path, data: body });
+    return await response.data;
+}
 
-    return axios({
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
-        method: 'post',
-        url: path.base + path.path,
-        data: qs.stringify(body)
+// return body only 
+async function get(path) {
+    const response = await req({ method: 'get', path: path });
+    return await response.data;
+}
+
+async function del(path) {
+    return await req({ method: 'delete', path: path });
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+async function req({ method, path, data }) {
+    await httpAuthService.tokenByRefresh(path);
+
+    let url = path.args === undefined ? path.base + path.path : path.base + path.path + path.args;
+    var response = await axios({
+        method: method,
+        url: url,
+        data: data
     });
+    return response;
 }
-
-function get(path) {
-    return req('get', path)
-        .then(handleResponse)
-        .then(data => {
-            return data;
-        });
-}
-
-function req(method, path, data) {
-    var res = httpAuthService.tokenByRefresh(path).then(response => {
-        httpAuthService.addTokenHeader(response.data.access_token);
-
-        let url = path.args === undefined ? path.base + path.path : path.base + path.path + path.args;
-        return axios({
-            method: method,
-            url: url,
-            data: data
-        });
-    });
-    return res;
-}
-
-function handleResponse(response) {
-
-    if (response.status === 200
-        || response.status === 201
-        || response.status === 204) {
-        return response.data;
-    } else {
-        if (response.status === 401) {
-            window.location.reload(true);
-        }
-
-        const error = (response.data && response.data.message) || response.statusText;
-        return Promise.reject(error);
-    }
-}
+/////////////////////////////////////////////////////////////////////////////////

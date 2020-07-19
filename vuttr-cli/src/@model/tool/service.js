@@ -1,7 +1,7 @@
 import { path, httpService } from '@http';
 
 /////////////////////////////////////////////////////////////////////////////////
-const args = { ...path, path: '/tool' };
+const args = { ...path, path: '/tools' };
 /////////////////////////////////////////////////////////////////////////////////
 
 export function createTool(payload) {
@@ -16,10 +16,6 @@ export function updateTool(payload) {
 
 export function listTool() {
   return httpService.get(args);
-}
-
-export function findTool(id) {
-  return httpService.get({ ...args, args: `/${id}` });
 }
 
 export function deleteTool(id) {
