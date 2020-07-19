@@ -1,5 +1,6 @@
 package com.ecarsm.vuttr.api.model.tool.service;
 
+import com.ecarsm.vuttr.api.exception.MyException;
 import com.ecarsm.vuttr.api.model.tag.service.TagService;
 import com.ecarsm.vuttr.api.model.tool.Tag;
 import com.ecarsm.vuttr.api.model.tool.Tool;
@@ -38,6 +39,10 @@ public class ToolService {
             return list;
         }
 
+    }
+
+    public Tool save(Tool tool) throws MyException {
+        return this.repository.save(tool);
     }
 
 }

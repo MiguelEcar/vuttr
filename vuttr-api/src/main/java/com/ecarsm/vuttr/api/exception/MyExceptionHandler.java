@@ -27,7 +27,7 @@ public class MyExceptionHandler extends ResponseEntityExceptionHandler {
         String devMsg = ExceptionUtils.getRootCauseMessage(ex);
 
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
                 .body(new MyExceptionReturn(ex, userMsg, devMsg));
     }
 }
