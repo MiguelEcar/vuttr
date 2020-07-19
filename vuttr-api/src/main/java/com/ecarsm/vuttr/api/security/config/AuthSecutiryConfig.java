@@ -70,7 +70,7 @@ public class AuthSecutiryConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(passwordEncoder().encode("@vuttr"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
-                .accessTokenValiditySeconds(60)
+                .accessTokenValiditySeconds(60 * 60 * 24)
                 .refreshTokenValiditySeconds(60 * 60 * 24 * 7);
     }
 }
