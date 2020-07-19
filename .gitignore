@@ -4,3 +4,5 @@
 
 /vuttr-cli/node_modules/
 /vuttr-cli/build/
+/vuttr-cli/.vscode
+/vuttr-cli/yarn.lock
