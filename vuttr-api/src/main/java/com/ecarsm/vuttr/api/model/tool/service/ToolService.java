@@ -45,4 +45,8 @@ public class ToolService {
         return this.repository.save(tool);
     }
 
+    public void remove(Long id) throws MyException {
+        this.repository.deleteById(id);
+    }
+
 }
