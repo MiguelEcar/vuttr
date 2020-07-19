@@ -19,7 +19,7 @@ If changing the Database, Flyway migrations should be adjusted.
 
 ## Endpoints
 
-### 1: `GET /tools`
+### 1: [GET] `/tools`
 
 Response:
 ```json
@@ -55,7 +55,7 @@ Response:
     ]
 ```
 
-### 2: `GET /tools?tag=node`
+### 2: [GET] `/tools?tag=node`
 
 Response:
 ```json
@@ -78,7 +78,7 @@ Response:
     ]
 ```
 
-### 3: `POST /tools`
+### 3: [POST] `/tools`
 
 ```json
     {
@@ -101,7 +101,7 @@ Response: `Status: 201 Created`
     }
 ```
 
-### 4: `DELETE /tools/:id`
+### 4: [DELETE] `/tools/:id`
 
 Response:
 
