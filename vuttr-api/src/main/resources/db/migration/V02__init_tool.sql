@@ -14,4 +14,8 @@ CREATE TABLE tool_tag
 (
   id bigint auto_increment NOT NULL,
   text character varying(100) NOT NULL,
+  tool bigint NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (tool) REFERENCES tool(id)
 );

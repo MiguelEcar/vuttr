@@ -1,17 +1,21 @@
 package com.ecarsm.vuttr.api.model.tool;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CollectionTable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
@@ -46,13 +50,36 @@ public class Tool implements Serializable {
     @Size(max = 500)
     private String description;
 
-    @ElementCollection
-    @CollectionTable(name = "TOOL_TAG", joinColumns = @JoinColumn(name = "ID", nullable = false))
-    @Column(name = "TEXT", length = 100)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "tool")
+    @JsonIgnore
+    private List<Tag> tagList;
+
+    @Transient
     private List<String> tags;
 
     public Tool() {
         this.tags = new ArrayList<>();
     }
 
+    public List<String> getTags() {
+        this.tags = new ArrayList<>();
+        for (Tag tag : this.tagList) {
+            this.tags.add(tag.getText());
+        }
+        return this.tags;
+    }
+
+    @PrePersist
+    @PreUpdate
+    public void parseTags() {
+        if (this.tagList == null) {
+            this.tagList = new ArrayList<>();
+        } else {
+            this.tagList.clear();
+        }
+
+        for (String text : this.tags) {
+            this.tagList.add(new Tag(null, text, this));
+        }
+    }
 }
