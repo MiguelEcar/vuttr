@@ -93,7 +93,7 @@ Response: `Status: 201 Created`
 
 ```json
     {
-        "id":4
+        "id":4,
         "title": "hotel",
         "link": "https://github.com/typicode/hotel",
         "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",

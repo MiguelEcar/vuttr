@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "febce0a2-7936-4163-9fff-50f91d84fbe8",
+		"name": "VUTTR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login (Auth Token)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@vuttr",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "react-cli",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "react-cli",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Tools",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhZG1pbi5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTk1MjE5NzA3LCJ1c2VyIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0sImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImp0aSI6IjhiMTRmYmE5LWI4ODctNDljOS1iODBiLTBiOTQzMmU2NjEzNiIsImNsaWVudF9pZCI6InJlYWN0LWNsaSJ9.XcJbBzpEqANc58QET2MXE4AqdjxM40IePfEVtgC2bcU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tools",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tools By tag filter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhZG1pbi5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTk1MjE5NzA3LCJ1c2VyIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0sImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImp0aSI6IjhiMTRmYmE5LWI4ODctNDljOS1iODBiLTBiOTQzMmU2NjEzNiIsImNsaWVudF9pZCI6InJlYWN0LWNsaSJ9.XcJbBzpEqANc58QET2MXE4AqdjxM40IePfEVtgC2bcU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tools?tag=node",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools"
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "node"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Tool",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhZG1pbi5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTk1MjE5NzA3LCJ1c2VyIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0sImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImp0aSI6IjhiMTRmYmE5LWI4ODctNDljOS1iODBiLTBiOTQzMmU2NjEzNiIsImNsaWVudF9pZCI6InJlYWN0LWNsaSJ9.XcJbBzpEqANc58QET2MXE4AqdjxM40IePfEVtgC2bcU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"hotel\",\r\n    \"link\": \"https://github.com/typicode/hotel\",\r\n    \"description\": \"Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.\",\r\n    \"tags\":[\"node\", \"organizing\", \"webapps\", \"domain\", \"developer\", \"https\", \"proxy\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tools",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Tool by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhZG1pbi5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTk1MjE5NzA3LCJ1c2VyIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0sImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImp0aSI6IjhiMTRmYmE5LWI4ODctNDljOS1iODBiLTBiOTQzMmU2NjEzNiIsImNsaWVudF9pZCI6InJlYWN0LWNsaSJ9.XcJbBzpEqANc58QET2MXE4AqdjxM40IePfEVtgC2bcU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tools/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New User",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "new@user.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
