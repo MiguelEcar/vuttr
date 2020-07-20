@@ -20,6 +20,12 @@ Full documentation can be seen at `http://localhost:3000/swagger-ui.html`
 - [POST] `/user` adds a new user
 - [POST] `/oauth/token` sign in the application
 
+## Authentication
+
+Default user credentials:
+Email: `admin@admin.com`
+Password: `123`
+
 ## Endpoints
 
 ### 1: [GET] `/tools`
