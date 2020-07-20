@@ -110,6 +110,21 @@ Response:
 
 `Status: 204 No Content`
 
+## Screens
+
+### Login Page
+![Page_1](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/login.png?raw=true)
+
+### Tools
+![Page_2](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/tools.png?raw=true)
+
+### Tools
+![Page_3](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/new_tool.png?raw=true)
+
+### Tools
+![Page_4](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/remove_tool.png?raw=true)
+
+
 
 
 ## Running
