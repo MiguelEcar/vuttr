@@ -111,10 +111,13 @@ class ToolNew extends React.Component {
                                                 />
                                             </Row>
                                             {/* // ///////////////////////////////////////////////////////////// */}
+                                            <label>{t('tool_tags')}</label>
+                                            
                                             <Chips
                                                 value={this.state.chips}
                                                 onChange={(chips) => this.setState({ chips })}
                                             />
+                                            <i>{t('tool_tags_hint')}</i>
                                             {/* // ///////////////////////////////////////////////////////////// */}
                                         </>
                                     }

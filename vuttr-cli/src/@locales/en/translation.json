@@ -33,6 +33,7 @@
     "tool_link": "Tool Link",
     "tool_description": "Tool Description",
     "tool_tags": "Tags",
+    "tool_tags_hint": "Use comma (,) to separate tags",
 
     "": ""
 }

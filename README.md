@@ -118,10 +118,10 @@ Response:
 ### Tools
 ![Page_2](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/tools.png?raw=true)
 
-### Tools
+### Create Tool
 ![Page_3](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/new_tool.png?raw=true)
 
-### Tools
+### Remove Tool
 ![Page_4](https://github.com/MiguelEcar/vuttr/blob/a537612752f110a55eddb77f2f45c1d432165687/Screenshots/remove_tool.png?raw=true)
 
 
