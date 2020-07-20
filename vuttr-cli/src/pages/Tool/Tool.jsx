@@ -16,13 +16,14 @@ import {
     LIST_TOOL,
     DELETE_TOOL
 } from '@model';
+import { Delete } from '@theme';
 
 import { ToolNew } from './ToolNew';
 
 class Tool extends React.Component {
 
-    componentDidMount() {
-        this.props.listTool();
+    async componentDidMount() {
+        await this.props.listTool();
     }
 
     remove = async (oid) => {
@@ -59,14 +60,8 @@ class Tool extends React.Component {
                                         {tool.title}
 
                                         <div style={{ float: 'right' }}>
-                                            <Row>
-                                                <Col md='auto'>
-                                                    <p className='fas fa-times'
-                                                        style={{ cursor: 'pointer' }} >
-                                                        {t('def_btn_remove')}
-                                                    </p>
-                                                </Col>
-                                            </Row>
+                                            <Delete oid={tool} remove={this.remove} t={t}
+                                                removed={toolReducer.removed} />
                                         </div>
                                     </Card.Header>
                                     <Card.Body>

@@ -6,6 +6,7 @@
     "def_signout": "Sign Out",
     "def_cancel": "Cancel",
     "def_close": "Close",
+    "def_removed": "Removed",
 
     "def_signin_msg": "You can log in to your VUTTR account here.",
     "def_signup_msg": "NEW HERE? Sign up and create your account.",
@@ -23,6 +24,9 @@
     "def_btn_remove": "Remove",
     "def_add_new_tool": "Add New Tool",
     "def_btn_add_tool": "Add Tool",
+    "def_dlg_remove_title": "Remove Tool",
+    "def_dlg_remove_msg": "Are you sure you want to remove ",
+    "def_dlg_remove_btn": "Yes, Remove",
 
     "tool_title": "Tool Name",
     "tool_link": "Tool Link",

@@ -10,7 +10,6 @@ import {
 } from 'react-bootstrap';
 
 import { Formik, Form } from 'formik';
-import { Field, FieldArray } from 'formik';
 
 import Chips from 'react-chips';
 

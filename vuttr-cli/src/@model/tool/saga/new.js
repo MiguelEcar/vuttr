@@ -1,5 +1,4 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { toast } from 'react-toastify';
 
 import {
   tool,
