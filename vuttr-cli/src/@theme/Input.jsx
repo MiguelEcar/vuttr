@@ -21,6 +21,7 @@ export const Input = (props) => {
                 value={props.values[props.name]}
                 onChange={props.handleChange}
                 isValid={getIn(props.touched, props.name) && !getIn(props.errors, props.name)}
+                isInvalid={getIn(props.touched, props.name) && getIn(props.errors, props.name)}
             />
             <Form.Control.Feedback type='invalid' tooltip>
                 {getIn(props.errors, props.name)}

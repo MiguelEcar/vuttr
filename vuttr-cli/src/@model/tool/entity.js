@@ -12,15 +12,15 @@ const validation = Yup.object().shape({
     title: Yup.string()
         .min(2, 'This field must have at least 2 characters!')
         .max(100, 'This field may have max 100 characters!')
-        .required('THis field is required!'),
+        .required('This field is required!'),
     link: Yup.string()
         .min(2, 'This field must have at least 2 characters!')
         .max(500, 'This field may have max 500 characters!')
-        .required('THis field is required!'),
+        .required('This field is required!'),
     description: Yup.string()
         .min(2, 'This field must have at least 2 characters!')
         .max(500, 'This field may have max 500 characters!')
-        .required('THis field is required!'),
+        .required('This field is required!'),
 });
 
 export const tool = {
