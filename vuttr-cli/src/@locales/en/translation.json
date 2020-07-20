@@ -5,6 +5,7 @@
     "def_signin": "Sign In",
     "def_signout": "Sign Out",
     "def_cancel": "Cancel",
+    "def_close": "Close",
 
     "def_signin_msg": "You can log in to your VUTTR account here.",
     "def_signup_msg": "NEW HERE? Sign up and create your account.",
@@ -17,5 +18,16 @@
     "user_success": "User Saved Successfully!",
     "user_fail": "Saving Failure! =(",
     
+    "def_search": "Search",
+    "def_btn_add": "Add",
+    "def_btn_remove": "Remove",
+    "def_add_new_tool": "Add New Tool",
+    "def_btn_add_tool": "Add Tool",
+
+    "tool_title": "Tool Name",
+    "tool_link": "Tool Link",
+    "tool_description": "Tool Description",
+    "tool_tags": "Tags",
+
     "": ""
 }

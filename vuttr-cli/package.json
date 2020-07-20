@@ -20,6 +20,7 @@
     "qs": "^6.9.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-chips": "^0.8.0",
     "react-dom": "^16.12.0",
     "react-i18next": "^10.13.1",
     "react-redux": "^7.1.3",

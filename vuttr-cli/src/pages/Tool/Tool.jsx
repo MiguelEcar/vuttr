@@ -13,10 +13,11 @@ import {
 
 
 import {
-    NEW_TOOL,
     LIST_TOOL,
     DELETE_TOOL
 } from '@model';
+
+import { ToolNew } from './ToolNew';
 
 class Tool extends React.Component {
 
@@ -38,23 +39,48 @@ class Tool extends React.Component {
         return (
             <Container>
                 <Row>
-                    <Col md='auto'>
+                    <Col md='12'><h1>VUTTR</h1></Col>
+                    <Col md='12'><h2>Very Useful Tools to Remember</h2></Col>
+                </Row>
+                <Row>
+                    <Col md='12'>
+
+                        <div style={{ float: 'right' }} >
+                            <ToolNew />
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md='12'>
                         {toolReducer.list && toolReducer.list.map((tool) =>
-                            <>
+                            <div key={tool.id}>
                                 <Card>
-                                    <Card.Header>{tool.title}</Card.Header>
+                                    <Card.Header>
+                                        {tool.title}
+
+                                        <div style={{ float: 'right' }}>
+                                            <Row>
+                                                <Col md='auto'>
+                                                    <p className='fas fa-times'
+                                                        style={{ cursor: 'pointer' }} >
+                                                        {t('def_btn_remove')}
+                                                    </p>
+                                                </Col>
+                                            </Row>
+                                        </div>
+                                    </Card.Header>
                                     <Card.Body>
                                         <Card.Text>{tool.description}</Card.Text>
                                         <hr />
                                         {tool.tags.map((tag) =>
-                                            <Badge variant='primary'>{tag}</Badge>
+                                            <Badge key={tag} variant='primary'>{tag}</Badge>
                                         )}
                                         {/* ///////////////////////////////////////////////////////////////////////////////// */}
 
                                     </Card.Body>
                                 </Card>
                                 <hr />
-                            </>
+                            </div>
                         )}
                     </Col>
                 </Row>
@@ -70,7 +96,6 @@ export function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        newForm: (id) => dispatch({ type: NEW_TOOL }),
         deleteTool: (id) => dispatch({ type: DELETE_TOOL, id }),
         listTool: () => dispatch({ type: LIST_TOOL })
     }

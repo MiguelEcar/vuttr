@@ -11,8 +11,6 @@ function* sagaNewTool(action) {
 
   yield put({ type: NEW_TOOL_SUCCESS, oid: tool.newOid });
 
-  toast('New Form!', { type: 'success', position: 'top-right' });
-
 }
 
 export default function* watchNewTool() {
