@@ -47,6 +47,7 @@ class ToolNew extends React.Component {
         values.tags = this.state.chips
         await this.props.createTool(values);
         this.handleClose();
+        this.props.reloadPage();
     }
     // /////////////////////////////////////////////////////////////////////////////
 

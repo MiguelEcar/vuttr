@@ -1,4 +1,5 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import { deleteTool } from '../service';
 import {
@@ -17,8 +18,11 @@ function* sagaDeleteTool(action) {
 
     if (a.status !== 204) {
       throw new Error('API delete request failed');
+    } else {
+      toast('Success!', { type: 'success', position: 'top-right' });
+      yield put({ type: DELETE_TOOL_SUCCESS, removed: true });
     }
-    yield put({ type: DELETE_TOOL_SUCCESS, removed: true });
+
 
   } catch (error) {
 

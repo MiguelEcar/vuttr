@@ -33,6 +33,7 @@ public class ToolRepImpl implements ToolRepQuery {
             criteria.where(predicate);
             criteria.distinct(true);
         }
+        criteria.orderBy(builder.desc(root.get(Tool.Field.id)));
 
         TypedQuery<Tool> query = this.manager.createQuery(criteria);
         return query.getResultList();
@@ -51,6 +52,7 @@ public class ToolRepImpl implements ToolRepQuery {
             criteria.where(builder.or(predicates));
             criteria.distinct(true);
         }
+        criteria.orderBy(builder.desc(root.get(Tool.Field.id)));
 
         TypedQuery<Tool> query = this.manager.createQuery(criteria);
 

@@ -40,7 +40,7 @@ class Tool extends React.Component {
     remove = async (oid) => {
 
         await this.props.deleteTool(oid.id);
-        await this.props.listTool();
+        await this.componentDidMount();
     }
     // /////////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +90,7 @@ class Tool extends React.Component {
                     </Col>
 
                     <Col md='1'>
-                        <ToolNew />
+                        <ToolNew reloadPage={() => this.componentDidMount()} />
                     </Col>
 
                 </Row>
@@ -109,7 +109,7 @@ class Tool extends React.Component {
                                         </div>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Card.Text>{tool.description}</Card.Text>
+                                        <Card.Text><pre>{tool.description}</pre></Card.Text>
                                         <hr />
                                         {tool.tags.map((tag) =>
                                             <Badge key={tag} variant='primary'>{tag}</Badge>
