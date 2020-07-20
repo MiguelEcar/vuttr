@@ -22,15 +22,45 @@ import { ToolNew } from './ToolNew';
 
 class Tool extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            search: '',
+            tagsOnly: true
+        }
+    }
+
+    // /////////////////////////////////////////////////////////////////////////////
     async componentDidMount() {
         await this.props.listTool();
     }
+    // /////////////////////////////////////////////////////////////////////////////
 
+    // /////////////////////////////////////////////////////////////////////////////
     remove = async (oid) => {
 
         await this.props.deleteTool(oid.id);
         await this.props.listTool();
     }
+    // /////////////////////////////////////////////////////////////////////////////
+
+    // /////////////////////////////////////////////////////////////////////////////
+    onSearch = async ({ target }) => {
+
+        if (target.name === 'search') {
+            await this.setState({
+                search: target.value
+            })
+        }
+        if (target.name === 'tagsOnly') {
+            await this.setState({
+                tagsOnly: target.checked
+            })
+        }
+
+        await this.props.listTool({ search: this.state.search, tagsOnly: this.state.tagsOnly });
+    }
+    // /////////////////////////////////////////////////////////////////////////////
 
     render() {
 
@@ -44,13 +74,27 @@ class Tool extends React.Component {
                     <Col md='12'><h2>Very Useful Tools to Remember</h2></Col>
                 </Row>
                 <Row>
-                    <Col md='12'>
 
-                        <div style={{ float: 'right' }} >
-                            <ToolNew />
-                        </div>
+                    <Col md='5'>
+                        <input type='text' placeholder={t('def_search')}
+                            className='form-control' name='search'
+                            value={this.state.search} onChange={this.onSearch} />
                     </Col>
+                    <Col md='6'>
+                        <label>
+                            <input type='checkbox' name='tagsOnly'
+                                checked={this.state.tagsOnly} onChange={this.onSearch} />
+                            {t('def_search_check')}
+                        </label>
+
+                    </Col>
+
+                    <Col md='1'>
+                        <ToolNew />
+                    </Col>
+
                 </Row>
+                <hr />
                 <Row>
                     <Col md='12'>
                         {toolReducer.list && toolReducer.list.map((tool) =>
@@ -79,7 +123,7 @@ class Tool extends React.Component {
                         )}
                     </Col>
                 </Row>
-            </Container>
+            </Container >
         );
     }
 }
@@ -92,7 +136,7 @@ export function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         deleteTool: (id) => dispatch({ type: DELETE_TOOL, id }),
-        listTool: () => dispatch({ type: LIST_TOOL })
+        listTool: (search) => dispatch({ type: LIST_TOOL, search })
     }
 }
 

@@ -20,6 +20,7 @@
     "user_fail": "Saving Failure! =(",
     
     "def_search": "Search",
+    "def_search_check": "search in tags only",
     "def_btn_add": "Add",
     "def_btn_remove": "Remove",
     "def_add_new_tool": "Add New Tool",

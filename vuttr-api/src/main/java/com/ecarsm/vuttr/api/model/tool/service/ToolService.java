@@ -1,11 +1,9 @@
 package com.ecarsm.vuttr.api.model.tool.service;
 
 import com.ecarsm.vuttr.api.exception.MyException;
-import com.ecarsm.vuttr.api.model.tag.service.TagService;
-import com.ecarsm.vuttr.api.model.tool.Tag;
 import com.ecarsm.vuttr.api.model.tool.Tool;
 import com.ecarsm.vuttr.api.model.tool.repository.ToolRep;
-import java.util.ArrayList;
+import com.ecarsm.vuttr.api.model.tool.repository.filter.ToolFilter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,25 +18,16 @@ public class ToolService {
     @Autowired
     private ToolRep repository;
 
-    @Autowired
-    private TagService tagService;
-
     public List<Tool> findAll() {
         return this.repository.findAll();
     }
 
-    public List<Tool> filter(String text) {
+    public List<Tool> filterTag(String tag) {
+        return this.repository.filterTag(tag);
+    }
 
-        if (text == null) {
-            return this.repository.findAll();
-        } else {
-            List<Tool> list = new ArrayList<>();
-            for (Tag tag : this.tagService.filter(text)) {
-                list.add(tag.getTool());
-            }
-            return list;
-        }
-
+    public List<Tool> filter(ToolFilter filter) {
+        return this.repository.filter(filter);
     }
 
     public Tool save(Tool tool) throws MyException {

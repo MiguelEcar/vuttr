@@ -8,11 +8,28 @@ import {
   LIST_TOOL_FAILURE
 } from '../actionTypes';
 
-function* sagaListTool() {
+function* sagaListTool(action) {
   yield put({ type: LIST_TOOL_PENDING })
 
+  const { search } = action;
+
   try {
-    const list = yield call(listTool)
+
+    let args = '/filter';
+
+    if (search) {
+      if (search.search !== '') {
+        args += '?search=' + search.search;
+        if (search.tagsOnly) {
+          args += '&tags=true';
+        }
+      }
+    }
+
+    console.log(search)
+
+    const list = yield call(listTool, args)
+
     yield put({ type: LIST_TOOL_SUCCESS, list: list })
 
   } catch (error) {

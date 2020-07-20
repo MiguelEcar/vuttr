@@ -14,8 +14,8 @@ export function updateTool(payload) {
   return httpService.put({ ...args, args: `/${id}` }, payload);
 }
 
-export function listTool() {
-  return httpService.get(args);
+export function listTool(search) {
+  return httpService.get({ ...args, args: search });
 }
 
 export function deleteTool(id) {

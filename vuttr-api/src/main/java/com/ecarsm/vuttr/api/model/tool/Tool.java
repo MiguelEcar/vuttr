@@ -3,7 +3,9 @@ package com.ecarsm.vuttr.api.model.tool;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +21,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 
 /**
@@ -29,6 +33,8 @@ import lombok.experimental.FieldNameConstants;
 @Table(name = "TOOL")
 @Data
 @FieldNameConstants(innerTypeName = "Field")
+@EqualsAndHashCode(exclude = {"tagList", "tags"})
+@ToString(exclude = {"tagList", "tags"})
 public class Tool implements Serializable {
 
     @Id
@@ -52,7 +58,7 @@ public class Tool implements Serializable {
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "tool")
     @JsonIgnore
-    private List<Tag> tagList;
+    private Set<Tag> tagList;
 
     @Transient
     private List<String> tags;
@@ -73,7 +79,7 @@ public class Tool implements Serializable {
     @PreUpdate
     public void parseTags() {
         if (this.tagList == null) {
-            this.tagList = new ArrayList<>();
+            this.tagList = new HashSet<>();
         } else {
             this.tagList.clear();
         }

@@ -2,6 +2,7 @@ package com.ecarsm.vuttr.api.model.tool.resources;
 
 import com.ecarsm.vuttr.api.exception.MyException;
 import com.ecarsm.vuttr.api.model.tool.Tool;
+import com.ecarsm.vuttr.api.model.tool.repository.filter.ToolFilter;
 import com.ecarsm.vuttr.api.model.tool.service.ToolService;
 import java.util.List;
 import lombok.Getter;
@@ -37,9 +38,24 @@ public class ToolResource {
      * @throws com.ecarsm.vuttr.api.exception.MyException
      */
     @GetMapping
-    public ResponseEntity<List<Tool>> filter(@RequestParam(required = false) String tag) throws MyException {
+    public ResponseEntity<List<Tool>> filterTag(@RequestParam(required = false) String tag) throws MyException {
 
-        List<Tool> resp = this.service.filter(tag);
+        List<Tool> resp = this.service.filterTag(tag);
+
+        return resp != null ? ResponseEntity.ok(resp) : ResponseEntity.noContent().build();
+    }
+
+    /**
+     * Returns the list of Tools filtered by tag returns All Tools if no param
+     *
+     * @param filter
+     * @return
+     * @throws com.ecarsm.vuttr.api.exception.MyException
+     */
+    @GetMapping("/filter")
+    public ResponseEntity<List<Tool>> filter(ToolFilter filter) throws MyException {
+
+        List<Tool> resp = this.service.filter(filter);
 
         return resp != null ? ResponseEntity.ok(resp) : ResponseEntity.noContent().build();
     }
@@ -52,7 +68,7 @@ public class ToolResource {
      * @throws com.ecarsm.vuttr.api.exception.MyException
      */
     @PostMapping
-    public ResponseEntity<Tool> filter(@RequestBody Tool tool) throws MyException {
+    public ResponseEntity<Tool> save(@RequestBody Tool tool) throws MyException {
 
         try {
             tool = this.service.save(tool);
@@ -72,7 +88,7 @@ public class ToolResource {
      * @throws com.ecarsm.vuttr.api.exception.MyException
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<Tool> filter(@PathVariable Long id) throws MyException {
+    public ResponseEntity<Tool> remove(@PathVariable Long id) throws MyException {
 
         try {
             this.service.remove(id);

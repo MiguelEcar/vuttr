@@ -13,7 +13,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 
 /**
@@ -26,6 +28,8 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants(innerTypeName = "Field")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = {"tool"})
+@ToString(exclude = {"tool"})
 public class Tag implements Serializable {
 
     @Id
