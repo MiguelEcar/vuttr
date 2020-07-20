@@ -9,8 +9,11 @@ Thus, the application user should register and sign in into the application to c
 For testing purposes, it uses H2 Database, which may be easily replaced for production uses.
 If changing the Database, Flyway migrations should be adjusted.
 
+Full documentation can be seen at `http://localhost:3000/swagger-ui.html`
+
 ## Endpoints
 - [GET] `/tools?tag=XX` returns all tools (if no filter) or the tools list filtered by tag.
+- [GET] `/tools/filter?search=XX&tags=true` returns all tools (if no filter) or the tools list filtered according to `search` and `tags` params.
 - [POST] `/tools` adds a new tool
 - [DELETE] `/tools/:id` remove tool by ID
 
@@ -114,7 +117,7 @@ Response:
 First things first:
 - Make sure `Java` environment variable is correctly set.
 - Make sure `Maven` environment variable is correctly set.
-<!-- - Make sure `Node.js` and `Yarn` are installed and environment variables correctly set. -->
+- Make sure `Node.js` and `Yarn` are installed and environment variables correctly set.
 
 After cloning, or download and extract the repository:
 
@@ -135,18 +138,18 @@ On Linux,
     sudo ./mvnw spring-boot:run
 ```
 
-<!--
+
 ### ReactJS Client
 
 ```ps
-    yarn install
+    yarn
     yarn start
 ```
--->
+
 
 ### Application defaults
 
-- By default the application API runs on port `3000` and client side app runs on port `3001`
+- By default the API runs on port `3000` and front-end client app runs on port `3001`
 
 Other configuration may be change in the [`application.properties`](/vuttr-api/src/main/resources/application.properties).
 

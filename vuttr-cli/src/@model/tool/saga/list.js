@@ -26,8 +26,6 @@ function* sagaListTool(action) {
       }
     }
 
-    console.log(search)
-
     const list = yield call(listTool, args)
 
     yield put({ type: LIST_TOOL_SUCCESS, list: list })
