@@ -6,7 +6,9 @@ export const httpService = {
     post,
     put,
     get,
-    del
+    del,
+    req,
+    reqOpen,
 };
 
 async function post(path, body) {
@@ -30,11 +32,23 @@ async function del(path) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-async function req({ method, path, data }) {
+async function reqOpen({ headers, method, path, data }) {
+
+    let url = path.args === undefined ? path.base + path.path : path.base + path.path + path.args;
+    var response = await axios({
+        headers: headers,
+        method: method,
+        url: url,
+        data: data
+    });
+    return response;
+}
+async function req({ headers, method, path, data }) {
     await httpAuthService.tokenByRefresh(path);
 
     let url = path.args === undefined ? path.base + path.path : path.base + path.path + path.args;
     var response = await axios({
+        headers: headers,
         method: method,
         url: url,
         data: data

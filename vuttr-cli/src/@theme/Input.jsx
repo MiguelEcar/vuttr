@@ -17,6 +17,7 @@ export const Input = (props) => {
                 as={props.as}
                 type={props.type}
                 name={props.name}
+                placeholder={props.placeholder}
                 rows={props.rows}
                 value={props.values[props.name]}
                 onChange={props.handleChange}
