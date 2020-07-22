@@ -13,22 +13,34 @@ class Delete extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            option: {
-                title: this.props.t('def_dlg_remove_title'),
-                text: this.props.t('def_dlg_remove_msg') + this.props.oid.title,
-                icon: 'warning',
-                buttons: {
-                    cancel: true,
-                    confirm: {
-                        text: this.props.t('def_dlg_remove_btn'),
-                        value: true,
-                        visible: true,
-                        className: 'bg-danger',
-                        closeModal: true
-                    }
+            option: this.option()
+        }
+    }
+
+    option = () => {
+        const option = {
+            title: this.props.t('def_dlg_remove_title'),
+            text: this.props.t('def_dlg_remove_msg') + this.props.oid.title,
+            icon: 'warning',
+            buttons: {
+                cancel: {
+                    text: this.props.t('def_cancel'),
+                    value: false,
+                    visible: true,
+                    closeModal: true
+                },
+                confirm: {
+                    text: this.props.t('def_dlg_remove_btn'),
+                    value: true,
+                    visible: true,
+                    className: 'btn btn-outline-danger',
+                    closeModal: true
                 }
             }
         }
+
+
+        return option;
     }
 
     callback(isConfirm, swal) {
@@ -39,7 +51,11 @@ class Delete extends React.Component {
         }
     }
 
-    handleClick = (e) => {
+    handleClick = async (e) => {
+
+        await this.setState({
+            option: this.option()
+        })
 
         swal(this.state.option).then(
             (confirm) => {

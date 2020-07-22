@@ -1,0 +1,40 @@
+{
+    "def_hello": "Ola, ",
+    "def_return": "Voltar",
+    "def_signup": "Cadastrar",
+    "def_signin": "Entrar",
+    "def_signout": "Sair",
+    "def_cancel": "Cancelar",
+    "def_close": "Fechar",
+    "def_removed": "Excluída",
+
+    "def_signin_msg": "Você pode entrar na sua conta VUTTRY aqui.",
+    "def_signup_msg": "Novo Aqui? cadastre-se e crie sua conta.",
+
+    "access_server_error": "Erro ao acessar o servidor! =( ",
+
+    "user_name": "Nome",
+    "user_email": "E-mail",
+    "user_password": "Senha",
+    "user_success": "Usuário Salvo com Sucesso!",
+    "user_fail": "Falha ao Salvar! =(",
+    
+    "def_search": "Pesquisar",
+    "def_search_check": "Pesquisar apenas nas tags",
+    "def_btn_add": "Adicionar",
+    "def_btn_remove": "Excluir",
+    "def_add_new_tool": "Nova Ferramenta",
+    "def_btn_add_tool": "Adicionar Ferramenta",
+
+    "def_dlg_remove_title": "Excluir Ferramenta",
+    "def_dlg_remove_msg": "Tem certeza que deseja excluir ",
+    "def_dlg_remove_btn": "Sim, Excluir",
+
+    "tool_title": "Nome da Ferramenta",
+    "tool_link": "Link da Ferramenta",
+    "tool_description": "Descrição",
+    "tool_tags": "Tags",
+    "tool_tags_hint": "Use virgula (,) para separar as tags",
+
+    "": ""
+}

@@ -58,7 +58,7 @@ class ToolNew extends React.Component {
 
         return (
             <>
-                <Button className='fas fa-plus'
+                <Button variant='outline-primary' className='fas fa-plus'
                     onClick={this.newForm}>
                     {t('def_btn_add')}
                 </Button>
@@ -128,7 +128,7 @@ class ToolNew extends React.Component {
                                     <Button variant='secondary' onClick={this.handleClose}>
                                         {t('def_close')}
                                     </Button>
-                                    <Button variant='primary' type='submit' >
+                                    <Button variant='outline-primary' className='fas fa-check' type='submit' >
                                         {t('def_btn_add_tool')}
                                     </Button>
                                 </Modal.Footer>

@@ -80,7 +80,7 @@ class Login extends React.Component {
                                             {/* // ///////////////////////////////////////////////////////////// */}
                                             <Row>
                                                 <Col md='auto'>
-                                                    <Button type='submit'>{t('def_signin')}</Button>
+                                                    <Button variant='outline-primary' type='submit'>{t('def_signin')}</Button>
                                                 </Col>
                                             </Row>
                                             {/* // ///////////////////////////////////////////////////////////// */}
@@ -137,7 +137,7 @@ class Login extends React.Component {
                                             {/* // ///////////////////////////////////////////////////////////// */}
                                             <Row>
                                                 <Col md='auto'>
-                                                    <Button type='submit'>{t('def_signup')}</Button>
+                                                    <Button variant='outline-info' type='submit'>{t('def_signup')}</Button>
                                                 </Col>
                                             </Row>
                                             {/* // ///////////////////////////////////////////////////////////// */}

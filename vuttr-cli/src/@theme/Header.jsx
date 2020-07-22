@@ -3,10 +3,12 @@ import { withTranslation } from 'react-i18next';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 import { httpAuthService } from '@http';
 import { history } from '@theme';
+
+import { CHANGE_LANG } from '../@model/lang'
 
 class Header extends React.Component {
 
@@ -52,6 +54,14 @@ class Header extends React.Component {
     return (
       <>
         <div className='header'>
+          <div>
+            <Button variant='outline-primary' className='fas fa-language' onClick={() => this.props.changeLang('en')}> En
+            </Button>
+
+            <Button variant='outline-secondary' className='fas fa-language' onClick={() => this.props.changeLang('pt')}> Pt
+            </Button>
+
+          </div>
           <div style={{ float: 'right' }}>
             {this.state.user &&
               <Row>
@@ -79,7 +89,8 @@ export function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: httpAuthService.logout
+    logout: httpAuthService.logout,
+    changeLang: (lang) => dispatch({ type: CHANGE_LANG, lang })
   }
 };
 /////////////////////////////////////////////////////////////////////////////////

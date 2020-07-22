@@ -109,7 +109,7 @@ class Tool extends React.Component {
                                         </div>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Card.Text><pre>{tool.description}</pre></Card.Text>
+                                        <pre>{tool.description}</pre>
                                         <hr />
                                         {tool.tags.map((tag) =>
                                             <Badge key={tag} variant='primary'>{tag}</Badge>

@@ -4,11 +4,15 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import XHR from "i18next-xhr-backend";
 
 import translation_en from '@locales/en/translation.json';
+import translation_pt from '@locales/pt/translation.json';
 
 // the translations
 const resources = {
-  EN: {
+  en: {
     translations: translation_en
+  },
+  pt: {
+    translations: translation_pt
   }
 };
 
@@ -17,8 +21,8 @@ i18n
   .use(LanguageDetector)
   .init({
     debug: true,
-    lng: "EN",
-    fallbackLng: "EN", // use en if detected lng is not available
+    lng: "en",
+    fallbackLng: "en", // use en if detected lng is not available
 
     keySeparator: false, // we do not use keys in form messages.welcome
 
